@@ -1,0 +1,5 @@
+Parameter: -eva-widening-delay 1 -eva-subdivide-non-linear 0 -eva-slevel 0 -eva-plevel 10 -eva-partition-history 0 -eva-min-loop-unroll 0 -eva-ilevel 8 -eva-equality-through-calls none -eva-domains cvalue -eva-auto-loop-unroll 0 
+alarm (  1): Signed_overflow(t - 1 >= -2147483648)
+alarm (  2): Memory_access(*(a + i_0), read)
+alarm (  3): Memory_access(*(a + (i_0 - 1)), read)
+alarm (  4): Uninitialized(*(a + i_0))

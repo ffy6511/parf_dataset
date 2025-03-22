@@ -1,0 +1,11 @@
+Parameter: -eva-widening-delay 1 -eva-subdivide-non-linear 0 -eva-slevel 0 -eva-plevel 10 -eva-partition-history 0 -eva-min-loop-unroll 0 -eva-ilevel 8 -eva-equality-through-calls none -eva-domains cvalue -eva-auto-loop-unroll 0 
+alarm (  1): Signed_overflow(result * base <= 9223372036854775807)
+alarm (  2): Signed_overflow(base * base <= 9223372036854775807)
+alarm (  3): Signed_overflow(t - 1 >= -2147483648)
+alarm (  4): Signed_overflow(prefix_1[i_0 - 1] + (a[i_0 - 1] == 1) <= 2147483647)
+alarm (  5): Index_out_of_bound(i_0 < 200010)
+alarm (  6): Signed_overflow(pre_2[i_0 - 1] + (a[i_0 - 1] == 2) <= 2147483647)
+alarm (  7): Index_out_of_bound(m + 1 < 200010)
+alarm (  8): Signed_overflow((long long)sum_recip[m] + recip <= 9223372036854775807)
+alarm (  9): Index_out_of_bound(cnt_1 < 200010)
+alarm ( 10): Signed_overflow(pow2 * sum_recip_current <= 9223372036854775807)

@@ -1,0 +1,9 @@
+Parameter: -eva-widening-delay 1 -eva-subdivide-non-linear 0 -eva-slevel 0 -eva-plevel 10 -eva-partition-history 0 -eva-min-loop-unroll 0 -eva-ilevel 8 -eva-equality-through-calls none -eva-domains cvalue -eva-auto-loop-unroll 0 
+alarm (  1): Memory_access(*(a + r), read)
+alarm (  2): Memory_access(*(a + (r - 1)), read)
+alarm (  3): Memory_access(*(a + mid), read)
+alarm (  4): Memory_access(*(a + (mid + 1)), read)
+alarm (  5): Signed_overflow(n - min <= 2147483647)
+alarm (  6): Signed_overflow(m - 1 >= -2147483648)
+alarm (  7): Signed_overflow(sum + (mo * mi - mi) >= -9223372036854775808)
+alarm (  8): Signed_overflow(sum + (mo * mi - mi) <= 9223372036854775807)

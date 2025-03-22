@@ -1,0 +1,10 @@
+Parameter: -eva-widening-delay 2 -eva-subdivide-non-linear 4 -eva-split-return auto -eva-slevel 11 -eva-plevel 29 -eva-partition-history 0 -eva-octagon-through-calls -eva-min-loop-unroll 0 -eva-ilevel 16 -eva-equality-through-calls none -eva-domains cvalue,equality,symbolic-locations -eva-auto-loop-unroll 22 
+alarm (  1): Signed_overflow(((x << 3) + (x << 1)) + ((int)ch ^ 48) <= 2147483647)
+alarm (  2): Signed_overflow((x << 3) + (x << 1) <= 2147483647)
+alarm (  3): Signed_overflow(x << 3 <= 2147483647)
+alarm (  4): Signed_overflow(i + 1 <= 2147483647)
+alarm (  5): Index_out_of_bound(i < 500005)
+alarm (  6): Signed_overflow(n - 1 >= -2147483648)
+alarm (  7): Index_out_of_bound(idx + 1 < 500005)
+alarm (  8): Index_out_of_bound(idx + 2 < 500005)
+alarm (  9): Index_out_of_bound(idx + 1 < 500005)
