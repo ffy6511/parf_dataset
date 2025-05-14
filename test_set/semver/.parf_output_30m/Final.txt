@@ -1,0 +1,30 @@
+Parameter: -eva-widening-delay 3 -eva-subdivide-non-linear 10 -eva-split-return auto -eva-slevel 17 -eva-remove-redundant-alarms -eva-plevel 63 -eva-partition-history 0 -eva-octagon-through-calls -eva-min-loop-unroll 0 -eva-ilevel 26 -eva-equality-through-calls formals -eva-domains cvalue,equality,gauges,octagon -eva-auto-loop-unroll 32 
+alarm (  1): Signed_overflow(num + tmp_0 <= 2147483647)
+alarm (  2): Pointer_comparison(lastx, (x + xlen) + 1)
+alarm (  3): Pointer_comparison(lasty, (y + ylen) + 1)
+alarm (  4): Pointer_comparison(endptr, next)
+alarm (  5): Memory_access(*endptr, read)
+alarm (  6): Pointer_comparison(lastx, (x + xlen) + 1)
+alarm (  7): Pointer_comparison(lasty, (y + ylen) + 1)
+alarm (  8): Pointer_comparison(next, (char *)0)
+alarm (  9): Uninitialized(ver.major)
+alarm ( 10): Uninitialized(ver.minor)
+alarm ( 11): Uninitialized(ver.patch)
+alarm ( 12): Pointer_comparison(xptr, (char *)0)
+alarm ( 13): Pointer_comparison(yptr, (char *)0)
+alarm ( 14): Pointer_comparison(endptr, xptr)
+alarm ( 15): Pointer_comparison(pr, (char *)0)
+alarm ( 16): Pointer_comparison(endptr, yptr)
+alarm ( 17): Memory_access(*(part + plen), write)
+alarm ( 18): Memory_access(*pr, write)
+alarm ( 19): Differing_blocks(xptr, lastx)
+alarm ( 20): Differing_blocks(yptr, lasty)
+alarm ( 21): Pointer_comparison(slice, (char *)0)
+alarm ( 22): Uninitialized(x->metadata)
+alarm ( 23): Signed_overflow(num + tmp <= 2147483647)
+alarm ( 24): Pointer_comparison(next, (char *)0)
+alarm ( 25): Uninitialized(x->prerelease)
+
+real	25m19.637s
+user	24m43.061s
+sys	0m31.481s

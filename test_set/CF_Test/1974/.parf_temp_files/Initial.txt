@@ -1,0 +1,3 @@
+Parameter: -eva-widening-delay 1 -eva-subdivide-non-linear 0 -eva-slevel 0 -eva-plevel 10 -eva-partition-history 0 -eva-min-loop-unroll 0 -eva-ilevel 8 -eva-equality-through-calls none -eva-domains cvalue -eva-auto-loop-unroll 0 
+alarm (  1): Invalid_shift(~ 0 )
+alarm (  2): Is_nan_or_infinite((float)(float)hitCount / (float)refCount)
