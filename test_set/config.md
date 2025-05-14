@@ -1,10 +1,21 @@
-[^]: 
+#### 文件说明
 
 本文件记录了：
 
-- 使用预测算法得到的初始参数，构建对应的frama-c/eva的执行命令
-- 上述命令得到的分析结果
-- `测试命令`部分记录了使用 `parf`在不同时间预算下的执行命令
+- `FDMT`章节下： 使用预测算法得到的初始参数(预测模型部署在，构建对应的frama-c/eva的执行命令
+  - 获取初始参数的说明
+    - [dify地址](https://api.dify.ai/v1/workflows/run ): 前端进行程序特征的分析， 将特征参数作为dify的输入
+      <img src="https://my-blog-img-1358266118.cos.ap-guangzhou.myqcloud.com/undefined20250514184138345.png?imageSlim"/>
+    - [KNN模型的地址](https://ffffy.pythonanywhere.com/predict): 由dify将待分析的特征传递给部署于*pythonanywhere*平台上的服务器端（节省前端资源开销）
+
+  - 根据预测的初始参数构建frama-c/eva的命令，随后给出在parf的docker容器下运行得到的结果
+
+- `Parf测试命令`部分记录了使用 `parf`在不同时间预算下的执行命令
+- `比较结果`部分：将两者性能进行比较
+  - 包含数据处理过程
+
+
+---
 
 
 
@@ -615,6 +626,8 @@ time frama-c code_2819.c  -parf -parf-budget 1500 -parf-output  .parf_output_30m
 
 #### latex
 
+原始
+
 ```latex
 \documentclass{article}
 \usepackage{booktabs}
@@ -655,6 +668,60 @@ time frama-c code_2819.c  -parf -parf-budget 1500 -parf-output  .parf_output_30m
     icpc             & 1302 & OSCS   & 293.96 & 1   & 891.27 & 1   & -       & -   & 4.76   & 5   \\
     jsmn             & 813  & OSCS   & 325.89 & 1   & 572.91 & 1   & -       & -   & \textcolor{red}{29.38} & 28  \\
     kilo             & 1276 & OSCS   & 300.78 & 446 & 893.81 & 448 & 1487.97 & 440 & 324.13 & 424 \\
+    solitaire        & 338  & OSCS   & 297.71 & 18  & 896.91 & 18  & 1427.03 & 18  & 14.01  & 21  \\
+    code\_2819       & 119  & -      & 266.28 & 36  & 879.13 & 36  & 1499.77 & 36  & 9.45   & 59  \\
+    code\_3401       & 293  & -      & 266.23 & 10  & 882.39 & 10  & 1484.71 & 10  & 32.49  & 11  \\
+    \bottomrule
+  \end{tabularx}
+\end{table}
+
+\end{document}
+```
+
+
+
+经过数据处理：
+
+```latex
+\documentclass{article}
+\usepackage{booktabs}
+\usepackage{geometry}
+\usepackage{caption}
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage{xcolor} % 如果要用颜色
+\geometry{margin=1in}
+
+\begin{document}
+
+\begin{table}[htbp]
+  \centering
+  \caption{Benchmark Comparison between Parf and FDMT}
+  \renewcommand{\arraystretch}{1.2}
+  \small
+  \begin{tabularx}{\linewidth}{@{}lrr*{10}{r}@{}} % l:名称, r: LOC, r: Source, 后面10列均为r
+    \toprule
+    \multicolumn{3}{c@{}}{\textbf{Benchmark Info}} &
+    \multicolumn{6}{c}{\textbf{Parf Performance}} &
+    \multicolumn{2}{c@{}}{\textbf{FDMT Performance}} \\
+    \cmidrule(lr){1-3}
+    \cmidrule(lr){4-9}
+    \cmidrule(lr){10-11}
+    \textbf{Name} & \textbf{LOC} & \textbf{Source} &
+    \textbf{5\# T} & \textbf{5\# A} &
+    \textbf{15\# T} & \textbf{15\# A} &
+    \textbf{30\# T} & \textbf{30\# A} &
+    \textbf{Time(s)} & \textbf{Alarms} \\
+    \midrule
+    khash            & 660  & OSCS   & \underline{19.77}  & \underline{2}   & 4.66   & 2   & 53.39   & 2   & \textcolor{red}{\textbf{0.79}}   & \underline{2}   \\
+    semver           & 1532 & OSCS   & 292.10 & 26  & \underline{862.65} & \underline{22}  & 1483.06 & 25  & \textcolor{red}{\textbf{145.63}} & \underline{22}  \\
+    CWE121           & 274  & Juliet & \underline{81.86}  & \underline{1}   & 92.84  & 1   & -       & -   & \textcolor{red}{\textbf{6.60}}   & \underline{1}   \\
+    CWE126           & 256  & Juliet & \underline{39.58}  & \underline{1}   & 87.96  & 1   & -       & -   & \textcolor{red}{\textbf{9.20}}   & \underline{1}   \\
+    code\_1974       & 645  & -      & \underline{145.65} & \underline{2}   & 880.82 & 2   & -       & -   & \textcolor{red}{\textbf{9.03}}    & 2   \\
+    tweetnacl-usable & 1204 & OSCS   & 290.26 & 26  & \underline{889.93} & \underline{26}  & 1471.36 & 25  & \textcolor{red}{27.34}  & \underline{26}  \\
+    icpc             & 1302 & OSCS   & 293.96 & 1   & 891.27 & 1   & -       & -   & 4.76   & 5   \\
+    jsmn             & 813  & OSCS   & 325.89 & 1   & 572.91 & 1   & -       & -   & 29.38 & 28  \\
+    kilo             & 1276 & OSCS   & 300.78 & 446 & 893.81 & 448 & 1487.97 & 440 & 3124.13 & \textcolor{red}{424} \\
     solitaire        & 338  & OSCS   & 297.71 & 18  & 896.91 & 18  & 1427.03 & 18  & 14.01  & 21  \\
     code\_2819       & 119  & -      & 266.28 & 36  & 879.13 & 36  & 1499.77 & 36  & 9.45   & 59  \\
     code\_3401       & 293  & -      & 266.23 & 10  & 882.39 & 10  & 1484.71 & 10  & 32.49  & 11  \\
