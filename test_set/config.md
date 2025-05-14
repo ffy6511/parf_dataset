@@ -227,9 +227,9 @@ time frama-c -eva -eva-widening-delay 4 -eva-subdivide-non-linear 3 -eva-slevel 
   100% of the logical properties reached have been proven.
   ----------------------------------------------------------------------------
 
-real	0m0.870s
-user	0m0.661s
-sys	0m0.208s
+real	0m0.403s
+user	0m0.278s
+sys	0m0.123s
 ```
 
 #### CWE126
@@ -257,16 +257,12 @@ time frama-c -eva -eva-widening-delay 4 -eva-subdivide-non-linear 3 -eva-slevel 
   100% of the logical properties reached have been proven.
   ----------------------------------------------------------------------------
 
-real	0m1.421s
-user	0m0.921s
-sys	0m0.435s
+real	0m0.386s
+user	0m0.277s
+sys	0m0.106s
 ```
 
-#### CWE319
 
-```bash
-
-```
 
 ---
 
@@ -543,7 +539,7 @@ time frama-c CWE126_Buffer_Overread__CWE129_connect_socket_01.c  -parf -parf-bud
 
 ```bash
 # jsmn
-time frama-c test/test.c -parf -parf-budget 1500 -parf-output  .parf_output_30m
+time frama-c test/tests.c -parf -parf-budget 1500 -parf-output  .parf_output_30m
 
 # khash
 time frama-c khash.c -parf -parf-budget 1500 -parf-output  .parf_output_30m
@@ -575,6 +571,14 @@ time frama-c code_3401.c  -parf -parf-budget 1500 -parf-output  .parf_output_30m
 # cf_2819
 time frama-c code_2819.c  -parf -parf-budget 1500 -parf-output  .parf_output_30m
 
+# cf_1974
+time frama-c code_1974.c  -parf -parf-budget 1500 -parf-output  .parf_output_30m
+
+# CWE121
+time frama-c CWE121_Stack_Based_Buffer_Overflow__CWE129_connect_socket_01.c  -parf -parf-budget 1500 -parf-output  .parf_output_30m
+
+# CWE126
+time frama-c CWE126_Buffer_Overread__CWE129_connect_socket_01.c -parf -parf-budget 1500 -parf-output  .parf_output_30m
 ```
 
 
@@ -611,7 +615,7 @@ time frama-c code_2819.c  -parf -parf-budget 1500 -parf-output  .parf_output_30m
 | Benchmark Name   | LOC  | Source | 5# time  | 5# alarm         | 15# time  | 15# alarm | 30# time  | 30# alarm        | FDMT#  time | FDMT# alarm |      |      |      |
 | khash            | 660  | OSCS   | 0m19.77s | 2                | 0m4.66s   | 2         | 0m53.39s  | 2                | 0m0.79s     | 2           |      |      |      |
 | semver           | 1532 | OSCS   | 4m52.10s | 26               | 14m42.65s | 22        | 24m43.06s | 25               | 2m25.63s    | 22          |      |      |      |
-| CWE121           | 274  | Juliet | 1m21.86s | 1                | 1m32.84s  | 1         | -         | -                | 0m0.66s     | 1           |      |      |      |
+| CWE121           | 274  | Juliet | 1m21.86s | 1                | 1m32.84s  | 1         | 6.67s     | 1                | 0m0.66s     | 1           |      |      |      |
 | CWE126           | 256  | Juliet | 0m39.58s | 1                | 1m27.96s  | 1         | -         | -                | 0m0.92s     | 1           |      |      |      |
 | code_1974        | 645  | -      | 4m25.65s | 2                | 14m40.82s | 2         | -         | -                | 0m9.03s     | 2           |      |      |      |
 | tweetnacl-usable | 1204 | OSCS   | 4m50.26s | 26               | 14m49.93s | 26        | 24m31.36s | 25               | 0m27.34s    | 26          |      |      |      |

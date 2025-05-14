@@ -1,8 +1,8 @@
-PWD /Users/zhuo/Developer/Parf/code/result_table
+PWD /Users/zhuo/Developer/Parf/parf_dataset/utils/result_table
 INPUT /usr/local/texlive/2025/texmf.cnf
 INPUT /usr/local/texlive/2025/texmf-dist/web2c/texmf.cnf
 INPUT /usr/local/texlive/2025/texmf-var/web2c/xetex/xelatex.fmt
-INPUT /Users/zhuo/Developer/Parf/code/result_table/result.tex
+INPUT /Users/zhuo/Developer/Parf/parf_dataset/utils/result_table/result.tex
 OUTPUT result.log
 INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/base/article.cls
 INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/base/article.cls

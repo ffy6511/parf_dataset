@@ -1,6 +1,6 @@
 Parameter: -eva-widening-delay 1 -eva-subdivide-non-linear 0 -eva-slevel 0 -eva-plevel 10 -eva-partition-history 0 -eva-min-loop-unroll 0 -eva-ilevel 8 -eva-equality-through-calls none -eva-domains cvalue -eva-auto-loop-unroll 0 
 alarm (  1): Index_out_of_bound(data < 10)
 
-real	2m7.527s
-user	1m32.844s
-sys	0m31.414s
+real	0m7.337s
+user	0m6.174s
+sys	0m1.060s
